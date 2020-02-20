@@ -15,8 +15,11 @@
                     Human
                 </h1>
                 <div class="healthbar">
-                    <div class="healthbar text-center">
-
+                    <div 
+                    class="healthbar text-center" 
+                    style="background-color: green; margin: 0; color: white;"
+                    :style="{ width : humanHealth + '%'}">
+                        {{humanHealth}}
                     </div>
                 </div>
             </div>
@@ -25,20 +28,23 @@
                     Computer
                 </h1>
                 <div class="healthbar">
-                    <div class="healthbar text-center">
-                        
+                    <div 
+                    class="healthbar text-center" 
+                    style="background-color: green; margin: 0; color: white;"
+                    :style="{ width : computerHealth + '%'}">
+                        {{computerHealth}}
                     </div>
                 </div>
             </div>
         </section>
-        <section class="row controls">
+        <section class="row controls" v-if=" !gameIsRunning ">
             <div class="small-12 columns">
-                <button id="start-game">
-                    Start New Game.
+                <button id="start-game" >
+                    Start New Game
                 </button>
             </div>
         </section>
-        <section class="row controls">
+        <section class="row controls" v-else>
             <div class="small-12 columns">
                 <button id="attack"> Attack!</button>
                 <button id="special-attack"> Special Attack!</button>
@@ -58,5 +64,6 @@
     </div>
 </body>
 <script src="https://unpkg.com/vue@2.6.11/dist/vue.js"></script>
+<script src="app.js"></script>
 
 </html>
