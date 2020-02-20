@@ -6,6 +6,54 @@
     <title>Human vs Computer</title>
 </head>
 <body>
-    <script src="https://unpkg.com/vue@2.6.11/dist/vue.js"></script>
+    <div id="app">
+        <section class="row">
+            <div class="small-6 columns">
+                <h1 class="text-center">
+                    Human
+                </h1>
+                <div class="healthbar">
+                    <div class="healthbar text-center">
+
+                    </div>
+                </div>
+            </div>
+            <div class="small-6 columns">
+                <h1 class="text-center">
+                    Computer
+                </h1>
+                <div class="healthbar">
+                    <div class="healthbar text-center">
+                        
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="row controls">
+            <div class="small-12 columns">
+                <button id="start-game">
+                    Start New Game.
+                </button>
+            </div>
+        </section>
+        <section class="row controls">
+            <div class="small-12 columns">
+                <button id="attack"> Attack!</button>
+                <button id="special-attack"> Special Attack!</button>
+                <button id="heal"> Heal</button>
+                <button id="giveup"> Give Up</button>
+            </div>
+        </section>
+        <section class="row log">
+            <div class="small-12 columns">
+                <ul>
+                    <li>
+
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </div>
 </body>
+<script src="https://unpkg.com/vue@2.6.11/dist/vue.js"></script>
 </html>
