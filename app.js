@@ -83,7 +83,8 @@ new Vue({
         giveUp(){
             
             this.startGame();
-            this.gameIsRunning = false;
+            this.gameIsRunning = false; 
+            alert('Congrats! You Pussied Out');
         },
 
         calculateDamage(min, max){

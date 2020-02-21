@@ -55,11 +55,13 @@
         <section class="row log" v-if="turns.length > 0">
             <div class="small-12 columns">
                 <ul>
-                    <li v-for=" turn in turns ">
+                    <li 
+                    v-for=" turn in turns "
+                    :class="{'player-turn' : turn.isHuman , 'monster-turn': !turn.isHuman}">
                         {{ turn.text}}
                     </li>
                 </ul>
-            </div>
+            </div> 
         </section>
     </div>
 </body>
