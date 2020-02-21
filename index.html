@@ -39,24 +39,24 @@
         </section>
         <section class="row controls" v-if=" !gameIsRunning ">
             <div class="small-12 columns">
-                <button id="start-game" >
+                <button id="start-game" @click="startGame">
                     Start New Game
                 </button>
             </div>
         </section>
         <section class="row controls" v-else>
             <div class="small-12 columns">
-                <button id="attack"> Attack!</button>
-                <button id="special-attack"> Special Attack!</button>
-                <button id="heal"> Heal</button>
-                <button id="giveup"> Give Up</button>
+                <button id="attack" @click="attack"> Attack!</button>
+                <button id="special-attack" @click="specialAttack"> Special Attack!</button>
+                <button id="heal" @click="heal"> Heal</button>
+                <button id="giveup" @click="giveUp"> Give Up</button>
             </div>
         </section>
         <section class="row log">
             <div class="small-12 columns">
                 <ul>
                     <li>
-
+                            {{playerHealth}}
                     </li>
                 </ul>
             </div>
