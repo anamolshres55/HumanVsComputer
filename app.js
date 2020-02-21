@@ -26,15 +26,21 @@ new Vue({
 
             }
 
-            this.humanHealth -= this.calculateDamage(5,12);
-
-            this.checkWin();
+            this.monsterAttack();
 
         },
 
         specialAttack(){
 
-            
+            this.computerHealth -= this.calculateDamage(10,20);
+
+            if (this.checkWin()){
+
+                return;
+
+            }
+
+            this.monsterAttack();
 
         },
 
@@ -85,6 +91,14 @@ new Vue({
             }
             
             return false;
+        },
+
+        monsterAttack(){
+
+            this.humanHealth -= this.calculateDamage(5,12);
+
+            this.checkWin();
+
         }
     }
 
