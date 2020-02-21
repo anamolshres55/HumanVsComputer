@@ -6,6 +6,7 @@ new Vue({
         humanHealth: 100,
         computerHealth: 100,
         gameIsRunning: false,
+        turns: []
     },
 
     methods:{
@@ -13,12 +14,19 @@ new Vue({
         startGame(){
             this.gameIsRunning = true,
             this.humanHealth = 100,
-            this.computerHealth = 100
+            this.computerHealth = 100,
+            this.turns = []
         },
 
         attack(){
             
-            this.computerHealth -= this.calculateDamage(3,10);
+            var damage = this.calculateDamage(3,10);
+            this.computerHealth -= damage
+
+            this.turns.unshift({
+                isHuman: true,
+                text: 'Human kicks Computer for ' + damage
+            });
 
             if (this.checkWin()){
 
@@ -32,7 +40,14 @@ new Vue({
 
         specialAttack(){
 
-            this.computerHealth -= this.calculateDamage(10,20);
+            var damage = this.calculateDamage(10,20);
+
+            this.computerHealth -= damage;
+
+            this.turns.unshift({
+                isHuman: true,
+                text: 'Human flying kicks Computer for ' + damage
+            });
 
             if (this.checkWin()){
 
@@ -55,14 +70,20 @@ new Vue({
 
                 this.humanHealth = 100;
             }
-            
+
+            this.turns.unshift({
+                isHuman: true,
+                text: 'Human blesses himself with 10hp '
+            });
+
             this.monsterAttack();
 
         },
 
         giveUp(){
-
-
+            
+            this.startGame();
+            this.gameIsRunning = false;
         },
 
         calculateDamage(min, max){
@@ -107,9 +128,15 @@ new Vue({
 
         monsterAttack(){
 
-            this.humanHealth -= this.calculateDamage(5,12);
+            var damage = this.calculateDamage(5,12);
+            this.humanHealth -= damage
 
             this.checkWin();
+
+            this.turns.unshift({
+                isHuman: false,
+                text: 'Computer kicks Human for ' + damage
+            });
 
         }
     }
