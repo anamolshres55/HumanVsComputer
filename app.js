@@ -46,6 +46,17 @@ new Vue({
 
         heal(){
 
+            if(this.humanHealth <= 90) {
+
+                this.humanHealth += 10;
+            }
+
+            else{
+
+                this.humanHealth = 100;
+            }
+            
+            this.monsterAttack();
 
         },
 
@@ -63,6 +74,7 @@ new Vue({
         checkWin(){
 
             if(this.computerHealth <= 0){
+
                 if(confirm('You won! Another Round?')){
 
                     this.startGame();
